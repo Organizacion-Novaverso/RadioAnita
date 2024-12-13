@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=none, initial-scale=1.0">
+    <title>Navegacion</title>
+    <link rel="stylesheet">
+   
+</head>
+
+<body>
+    <nav class="navbar" style="background-color: #001E3B">
+       <div class="container-fluid">
+            <div class="container-fluid"  id="navegador">
+            <div style=" display: grid; place-items: center;">
+                <ul >
+                    <button class="dropbtn" routerLink="/menu">Menu</button>
+                    <div class="dropdown">
+                        <button class="dropbtn">Profesores</button>
+                        <div class="dropdown-content">
+                        <a href="/profesor/crear-profe">Crear Profesor</a>
+                        <a href="/profesor/index-profe">Listar Profesor</a>
+                        </div>
+                      </div>                            
+                      <div class="dropdown">
+                        <button class="dropbtn">Asignaturas</button>
+                        <div class="dropdown-content">
+                        <a routerLink="/post/create">Crear asignatura</a>
+                        <a routerLink="/post/index">Listar Asignaturas</a>
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <button class="dropbtn">Carga Academica</button>
+                        <div class="dropdown-content">
+                          <a routerLink="/carga-horaria/carga-horaria">Asignar Carga</a>
+                          <a routerLink="/carga-horaria/visualizar-carga">Visualizar Carga Docentes</a>
+                          <a routerLink="/carga-horaria/cargarAcademica">Ver Carga Academica</a>
+                        </div>
+                      </div>
+                </ul>
+            </div>
+            </div>
+          </div>
+    </nav>
+    <!-- <div class="search-container">
+      <input type="text" placeholder="Buscar...">
+      <button type="submit">Buscar</button>
+  </div> -->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

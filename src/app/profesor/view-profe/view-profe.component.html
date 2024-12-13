@@ -1,0 +1,86 @@
+<body>
+<app-barranavegacion></app-barranavegacion>
+<div class="container">
+    <h1 class= "titulo">Ver Docente</h1>
+  
+
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="detail">
+                        
+                        <p><strong>Rut: </strong>{{ profesor.idProfesor }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Nombre: </strong>{{ profesor.Nombre }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Apellido: </strong>{{ profesor.Apellido }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Tipo de Contrato: </strong>{{ obtenerTipo(profesor.Tipo) }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Profesión: </strong>{{ profesor.Profesion }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Horas: </strong>{{ profesor.Horas }}</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detail">
+                        
+                        <p> <strong>Valor/Hora: </strong>{{ profesor.ValorHora }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Jerarquía: </strong>{{ obtenerJerarquia(profesor.idJerarquia) }}</p>
+                    </div>
+
+                    <div class="detail">
+                       
+                        <p><strong>Dirección: </strong>{{ profesor.Direccion }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Teléfono: </strong>{{ profesor.Telefono }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Grado Académico: </strong>{{ profesor.Grado }}</p>
+                    </div>
+
+                    <div class="detail">
+                        
+                        <p><strong>Título Grado: </strong>{{ profesor.TituloGrado }}</p>
+                    </div>
+
+                    <div class="detail">
+                       
+                        <p><strong>Estado: </strong>{{ obtenerEstado(profesor.Estado) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="alinear">
+            <button routerLink="/profesor/index-profe" class="botonvolver">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

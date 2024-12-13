@@ -1,0 +1,275 @@
+/* Estilos para los campos de información */
+
+/* CAMPO DATOS INGRESAR CARGA*/
+.containerflex {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  width: 80%;
+  max-width: 1320px;
+  min-width: 500px; /* Añadido un ancho mínimo */
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+}
+
+/* DATOS PARA DOCENCIA DIRECTA*/
+.containerflex1 {
+  margin-bottom: 20px;
+  margin-left: 15%;
+  width: 80%;
+  max-width: 1320px;
+  min-width: 500px; /* Añadido un ancho mínimo */
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: medium;
+}
+/* DATOS PARA  OTROS GESTION */
+.containerflex3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  width: 80%;
+  max-width: 1320px;
+  min-width: 500px; /* Añadido un ancho mínimo */
+  min-height: 250px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: medium;
+}
+.fila_titulo{
+  display: flex;
+
+}
+
+
+@media (max-width: 768px) {
+  .containerflex {
+    width: 80%; /* Cambiado de 66% a 80% */
+    margin: 15px; /* Reducido el margen */
+  }
+}
+
+.h1 {
+  text-align: center;
+}
+
+.has {
+  position: relative;
+}
+
+/* Estilo para las celdas de la tabla */
+.cell-box {
+  border: 1px solid #ccc; /* Borde de 1 píxel con color gris claro */
+  padding: 10px; /* Espaciado interior de 10 píxeles */
+  text-align: center;
+}
+
+/* Estilo para centrar el texto dentro de las celdas de la tabla */
+#asignaturas-body td {
+  text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilos para el botón Buscar Código */
+/* .boton-item button {
+ margin-left: 550px;
+} */
+
+.form-control1 {
+  display: block;
+  width: 130px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #ffffffff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control11 {
+  display: block;
+  width: 90px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #ffffffff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control2 {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #ffffffff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.row {
+  margin-bottom: 10px;
+  margin-left: 25px; 
+  width: 100%;
+}
+
+.col1 {
+  width: 150px;
+  margin-bottom: 25px;
+}
+
+.col21, .col22 {
+  width: 20%;
+}
+
+/* FONDO */
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Para Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Para Chrome, Safari y Opera */
+}
+
+/* CONTENIDO */
+.border {
+  background-color: white;
+  padding: 40px 10px;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+/* BOTONES CONFIG */
+.boton {
+  color: white;
+  background-color: #003366;
+  text-align: center;
+  margin-right: 25px;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0px;
+}
+
+.boton:hover {
+  background-color: #002244;
+  color: white;
+}
+
+.linear {
+  text-align: center;
+  padding: 15px;
+}
+
+/* TITULO */
+.titulo {
+  text-align: left;
+  margin-left: 15%;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+/* OCULTAR SIDEBAR */
+.sidebar {
+  visibility: hidden;
+}
+
+#floating-button {
+  background-color: #002244;
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+  z-index: 1;
+}
+#floating-button:hover{
+  background-color: #003366;
+}
+
+/* Ventana emergente */
+.popup {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: none; /* Ocultar la ventana emergente por defecto */
+  z-index: 2; /* Mostrar la ventana emergente encima de otros elementos */
+  width: 300px; /* Ancho fijo de la ventana emergente */
+  max-width: 90vw; /* Ancho máximo del 90% de la vista */
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-content textarea {
+  width: 100%;
+  height: auto; /* Altura automática para ajustarse al contenido */
+  min-height: 100px; /* Altura mínima */
+  max-height: 300px; /* Altura máxima */
+  box-sizing: border-box;
+  resize: none; /* Evitar el cambio de tamaño manual */
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#close-popup {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  margin-right: 25px;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0px;
+  cursor: pointer;
+}
+
+#close-popup:hover {
+  background-color: #002244; 
+}
+
+.popup1 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.popup-content1 {
+  display: flex;
+  flex-direction: column;
+}

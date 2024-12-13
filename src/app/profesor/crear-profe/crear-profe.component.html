@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Crear Docente</title>
+    <!-- Coloca aquí tus etiquetas de estilo CSS y enlaces a scripts JS si los tienes -->
+</head>
+<body>
+<app-barranavegacion></app-barranavegacion>
+
+
+
+    <h1 class="titulo">Crear Docente</h1>
+    <div class="border">
+        
+        <br>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col1">
+                        <label for="idProfesor"><strong>Rut:</strong></label>
+                        <input formControlName="idProfesor" id="idProfesor" type="string" class="form-control1" (change)="verificarRut($event)" placeholder="12345678-9">
+                        <div *ngIf="f['idProfesor'].touched && f['idProfesor'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['idProfesor'].errors && f['idProfesor'].errors['required']">Es necesario agregar rut.</div>
+                            <div *ngIf="f['idProfesor'].errors && f['idProfesor'].errors['rutInvalido']">El Rut es inválido.</div>
+                        </div>
+                    </div>
+                    <div class="col21 ">
+                        <label for="Nombre"><strong>Nombres:</strong></label>
+                        <input formControlName="Nombre" id="Nombre" type="text" class="form-control2" >
+                        <div *ngIf="f['Nombre'].touched && f['Nombre'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Nombre'].errors && f['Nombre'].errors['required']">Es necesario agregar Nombre.</div>
+                        </div>
+                    </div>
+                    <div class="col21">
+
+                        <label for="Apellido"><strong>Apellidos:</strong></label>
+                        <input formControlName="Apellido" id="Apellido" type="text" class="form-control2" >
+                        <div *ngIf="f['Apellido'].touched && f['Apellido'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Apellido'].errors && f['Apellido'].errors['required']">Es necesario agregar Apellido .</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col1">
+                    <div class="form-group">
+                        <label for="Telefono"><strong>Teléfono:</strong></label>
+                        <input formControlName="Telefono" id="Telefono" type="number" class="form-control1" placeholder="912345678">
+                        <div *ngIf="f['Telefono'].touched && f['Telefono'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Telefono'].errors && f['Telefono'].errors['required']">Es necesario agregar Teléfono.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col21">
+                    <div class="form-group">
+                        <label for="Direccion"><strong>Dirección:</strong></label>
+                        <input formControlName="Direccion" id="Direccion" type="text" class="form-control2">
+                        <div *ngIf="f['Direccion'].touched && f['Direccion'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Direccion'].errors && f['Direccion'].errors['required']">Es necesario agregar Dirección.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col21">
+                    <div class="form-group">
+                        <label for="Profesion"><strong>Profesión</strong></label>
+                        <input formControlName="Profesion" id="Profesion" type="text" class="form-control">
+
+                        <div *ngIf="f['Profesion'].touched && f['Profesion'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Profesion'].errors && f['Profesion'].errors['required']">Es necesario agregar Profesion .</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col1">
+
+                    <div class="form-group">
+                        <label for="Tipo"><strong>Tipo: </strong></label>
+                        <select id="Tipo" class="form-control2" formControlName="Tipo">
+                            <option value="C">Contrato</option>
+                            <option value="H">Horario</option>
+                        </select>
+
+                        <div *ngIf="f['Tipo'].touched && f['Tipo'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Tipo'].errors && f['Tipo'].errors['required']">Es necesario agregar Tipo .</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col21">
+                    <div class="form-group">
+                        <label for="Grado"><strong>Grado Académico</strong></label>
+                        <select formControlName="Grado" id="Grado" class="form-control2">
+                            <option value="Bachiller"> Bachiller</option>
+                            <option value="Licenciado"> Licenciado</option>
+                            <option value="Magíster "> Magíster</option>
+                            <option value="Doctorado"> Doctorado</option>
+                        </select>
+                        <div *ngIf="f['Grado'].touched && f['Grado'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Grado'].errors && f['Grado'].errors['required']">Es necesario agregar Grado.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col21">
+                    <div class="form-group">
+                        <label for="TituloGrado"><strong>Titulo de Grado</strong></label>
+                        <input formControlName="TituloGrado" id="TituloGrado" type="text" class="form-control">
+
+                        <div *ngIf="f['TituloGrado'].touched && f['TituloGrado'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['TituloGrado'].errors && f['TituloGrado'].errors['required']">Es necesario agregar TituloGrado .</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col1">
+                    <div class="form-group">
+                        <label for="Horas"><strong>Horas semanales</strong></label>
+                        <input formControlName="Horas" id="Horas" type="number" name="Horas" class="form-control" oninput="validarNumero()" min="0" placeholder="MAX 10">
+
+                        <div *ngIf="f['Horas'].touched && f['Horas'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Horas'].errors && f['Horas'].errors['required']">Es necesario agregar Horas.</div>
+                            <div *ngIf="f['Horas'].errors && f['Horas'].errors['maxNumber']">No se pueden asignar mas de 42 horas.</div>
+                            <div *ngIf="f['Horas'].errors && f['Horas'].errors['minNumber']">No se puede asignar 0 horas.</div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="form-group">
+                        <label for="ValorHora"><strong>Valor/Hora</strong></label>
+                        <input formControlName="ValorHora" id="ValorHora" type="number" class="form-control">
+
+                        <div *ngIf="f['ValorHora'].touched && f['ValorHora'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['ValorHora'].errors && f['ValorHora'].errors['required']">Es necesario agregar ValorHora .</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="form-group">
+                        <label for="idJerarquia"><strong>Jerarquia</strong></label>
+                        <select id="idJerarquia" class="form-control" formControlName="idJerarquia">
+                            <option value="1">Instructor</option>
+                            <option value="2">Asistente</option>
+                            <option value="3">Asociado</option>
+                            <option value="4">Titular </option>
+                        </select>
+
+                        <div *ngIf="f['idJerarquia'].touched && f['idJerarquia'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['idJerarquia'].errors && f['idJerarquia'].errors['required']">Es necesario agregar una Jerarquia .</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="form-group">
+                        <label for="Estado"><strong>Estado</strong></label>
+                        <select id="Estado" class="form-control" formControlName="Estado">
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
+                        </select>
+                        <div *ngIf="f['Estado'].touched && f['Estado'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['Estado'].errors && f['Estado'].errors['required']">Es necesario agregar Estado .</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="mensajeRespuesta" class="mensaje">
+                {{ mensajeRespuesta }}
+            </div>
+
+            <div class="linear">
+                <button routerLink="/profesor/index-profe" class="boton">Lista de Docentes</button>
+                <button class="boton" type="submit" [disabled]="submitDisabled">Crear Docente</button>
+
+            </div>
+        </form>
+    </div>
+</body>

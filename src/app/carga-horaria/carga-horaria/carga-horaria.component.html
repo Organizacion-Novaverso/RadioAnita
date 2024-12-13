@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Carga Academica</title>
+</head>
+
+<body >
+  <app-barranavegacion></app-barranavegacion>
+
+  <form>
+    <div class="fila_titulo">
+      <h1 class="titulo">Ingresar Carga</h1>
+      <!-- <h1 class="titulo" style="margin-left: 600px;">Notas</h1> -->
+    </div>
+    <div class="fila">
+      <div class="containerflex ">
+  
+  
+        <div class="form-group">
+          <div class="row">
+            <div class="col1">
+              <label for="idProfesor"><strong>Rut:</strong></label>
+              <input formControlName="idProfesor" id="rut" type="text" class="form-control1" autocomplete="off">
+            </div>
+  
+            <div class="col22 ">
+              <label for="nombre"><strong>Nombre:</strong></label>
+              <input formControlName="Nombre" id="nombre" type="text" class="form-control2" autocomplete="off">
+            </div>
+  
+            <div class=col1>
+              <label for="año"><strong>Año:</strong></label>
+              <input formControlName="Año" id="año" class="form-control11" autocomplete="off" [value]="currentYear"
+                readonly disabled>
+            </div>
+            
+            <div class="col1">
+              <label for="grado"><strong>Grado:</strong></label>
+              <div formControlName="Grado" id="grado" class="form-control1"></div>
+            </div>
+  
+            <div class="col1">
+              <label for="jerarquizacion"><strong>Jerarquizacion:</strong></label>
+              <div formControlName="Jerarquizacion" id="jerarquizacion" class="form-control2"></div>
+            </div>
+  
+            <div class="col1">
+              <label for="horascontrato"><strong>Horas Contrato:</strong></label>
+              <div formControlName="horascontrato" id="horascontrato" class="form-control2"></div>
+            </div>
+  
+            <div class="col1">
+              <label for="PosibleHorasDeDocencia"><strong>Horas Docencia:</strong></label>
+              <div formControlName="PosibleHorasDeDocencia" id="PosibleHorasDeDocencia" class="form-control2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="fila_titulo">
+    <h1 class="titulo">Carga Docente</h1>
+    </div>
+  <div class="fila">
+    <!-- Docencia Directa -->
+    <form>
+      <div class="containerflex1">
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col1">
+              <label for="codigo"><strong>Codigo:</strong></label>
+              <input formControlName="codigo" type="text" id="codigo" class="form-control1" placeholder="Codigo Asignatura" required autocomplete="off" uptwo>
+            </div>
+
+            <div class="col1">
+              <label for="seccion"><strong>Seccion:</strong></label>
+              <select formControlName="seccion" id="seccion" class="form-control1" (change)="agregarFila()" ></select>
+            </div>
+          </div>
+        </div>
+
+        <table class="table table-striped table-bordered" #tabla1>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Sección</th>
+              <th>Nombre</th>
+              <th>Horas 45'</th>
+              <th>Minutos</th>
+              <th>Planificacion</th>
+              <th>Total</th>
+              <th>Confirmar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+
+          <tbody id="asignaturas-body">
+            <!-- Aquí se agregarán las filas dinámicamente -->
+          </tbody>
+          
+        </table>
+        <tr>Horas Docente: {{totalasignaturas}} / Maximo Horas Docente: {{horasxdocencia}}</tr>
+        <button type="submit" id="guardar-button" class="boton" (click)="guardarDatos()">Guardar</button>
+      </div>
+    </form>
+    <h1 class="titulo" >Trabajo Administrativo</h1>
+    <form>
+      <div class="containerflex3">
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col1">
+              <label for="Carga"><strong>Actividad:</strong></label>
+              <select formControlName="Carga" id="Carga" class="form-control1" ></select>
+            </div>
+            <div class="col1">
+              <label for="Horas"><strong>Hora:</strong></label>
+              <input formControlName="Horas" type="text" id="Horas" class="form-control1" placeholder="Horas" (change)="agregarFilaAdministrativa1()" uptwo>
+            </div>
+          </div>
+        </div>
+
+        <table class="table table-striped table-bordered" #tabla>
+          <thead>
+            <tr>
+              <th>Carga</th>
+              <th>Horas 60'</th>
+              <th>Minutos</th>
+              <th>Total</th>
+              <th>Confirmar</th>
+              <th>Eliminar</th>
+            </tr>
+           
+          </thead>
+          <tbody id="carga-administrativa-body">
+            <!-- Aquí se agregarán las filas dinámicamente -->
+          </tbody>
+          
+        </table>
+        <tr> Horas Administrativas: {{totalcarga}} / Maximo Horas Administrativas: {{horasxcontrato - totalasignaturas}}</tr>
+        <!-- <button type="button" class="boton" (click)="agregarFilaAdministrativa1()">Agregar</button> -->
+        <button type="submit" class="boton" id="guardar-button" (click)="guardarDatosAdministrativos()">Guardar</button>
+        <button type="button" class="boton" id="nuevo-observacion-button" (click)="abrirNuevoPopup()">Nuevo Trabajo</button>
+      </div>
+    </form>
+  </div>
+
+<!-- Botón Observacion -->
+<button id="floating-button" #floatingButton class="boton">Observacion</button>
+
+<!-- Ventana emergente -->
+<div id="popup" #popup class="popup">
+  <div class="popup-content">
+    <label for="Observacion"><strong>Observacion</strong></label>
+    <textarea #Notas formControlName="Observacion" id="Observacion" class="form-control1" placeholder="Escribe tus observaciones aquí"></textarea>
+    <button class="boton" id="guardar-nota-button" (click)="guardarNota()">Guardar</button>
+    <button class="boton" id="close-popup" #closePopupButton>Cerrar</button>
+  </div>
+</div>
+
+ <!-- Nueva ventana emergente -->
+ <div id="nuevo-popup" #nuevoPopup class="popup1">
+  <div class="popup-content1">
+    <div class="form-group">
+      <div class="row">
+        <div class="col1">
+          <label for="idTrabajo"><strong>IDTrabajo: </strong></label>
+          <input formControlName="idTrabajo" id="idTrabajo" class="form-control1" placeholder="ID Trabajo">
+        </div>
+        
+        <div class="col1">
+          <label for="trabajo"><strong>Trabajo: </strong></label>
+          <input formControlName="trabajo" id="trabajo" class="form-control1" placeholder="Trabajo">
+        </div>
+      </div>
+    </div>
+
+    <button class="boton" id="guardar-nueva-nota-button" (click)="guardarNuevaNota()">Guardar</button>
+    <button class="boton" id="close-nuevo-popup" (click)="cerrarNuevoPopup()">Cerrar</button>
+  </div>
+</div>
+</body>
+</html>
